@@ -54,7 +54,10 @@
                         //Nếu list tồn tại thì reset thông điệp cảnh báo về rỗng và loop dữ liệu hiển thị ra table
                         if (listSize > 0) {
                             $('#message').text("");
+<<<<<<< HEAD
+=======
                             console.log(listSize);
+>>>>>>> 0bdc73af5da830da558b7129529f5cccf7f480ea
                             //Khai báo table kiểu global để sử dụng ngoài fuction này
                             table = document.getElementById("row");
                             for (i = 0; i < listSize; i++) {

@@ -1,12 +1,20 @@
 package controler;
 
 
+<<<<<<< HEAD
+import java.sql.SQLException;
+import java.util.List;
+
+
+import model.DanhSachPhongTrong;
+=======
 import java.util.List;
 
 import connectionDB.NVThongKeDB;
 import model.DanhSachPhongTrong;
 import model.ThongKeThuePhong;
 import model.ThongTinKhachHang;
+>>>>>>> 0bdc73af5da830da558b7129529f5cccf7f480ea
 
 public class demo {
 
@@ -14,8 +22,20 @@ public class demo {
 		// TODO Auto-generated constructor stub
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
 		
+//		Connection connection = ConnectDB.getConnect_sa();
+//		if(connection != null)
+//			System.out.println(connection + ": thanh cong");
+//		else
+//			System.out.println("Login khong thanh cong");
+		
+<<<<<<< HEAD
+		
+		List<DanhSachPhongTrong> list = connectionDB.NVTimPhongDB.NVTimPhong("2017-11-08", "2017-11-10", "sa", "12345678");
+		
+		System.out.println(list.get(1).getMaLoaiPhong());
+=======
 //		Connection connection = ConnectDB.getConnect_sa();
 //		if(connection != null)
 //			System.out.println(connection + ": thanh cong");
@@ -48,6 +68,7 @@ public class demo {
 			System.out.println("So phong doi: " + p.getSoPhongDoi());
 			System.out.println("So phong tap the: " + p.getSoPhongTapThe());
 		}
+>>>>>>> 0bdc73af5da830da558b7129529f5cccf7f480ea
 		
 	}
 

@@ -11,6 +11,7 @@
 .thongtin {
     border: 2px solid beige;
     padding: 20px;
+    border-radius:5px;
 }
 
 .form{
@@ -23,4 +24,27 @@
 
 .form-control {
     font-size: 16px;
+}
+
+#btnthanhtoan {
+    margin-bottom: 45px;
+    background: #0d875c;
+    color: white;
+    font-size:20px;
+}
+
+#btnthanhtoan:hover {
+    background: #bfa145;
+}
+
+#btntrolai {
+    margin-bottom: 45px;
+    background: #0d875c;
+    color: white;
+    font-size: 20px;
+    margin:10px;
+}
+
+#btntrolai:hover {
+    background: #bfa145;
 }

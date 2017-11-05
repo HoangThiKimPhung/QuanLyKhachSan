@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@page import="java.util.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.ArrayList"%>
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -78,17 +85,53 @@
 
             <div class="col-xs-12 col-sm-5 col-md-5">
                 <h2 class="datphong" style="color:#0d875c">Đặt phòng</h2>
-                <form role="form" class="wowload fadeInRight">
+                <form role="form" class="wowload fadeInRight" action="KD_TimPhong" method="GET">
                     <div class="form-group">
                         <div class="col-sm-6" style="line-height: 35px">
-                            Ngày nhận phòng: <input type="date" class="form-control" placeholder="Ngày nhận phòng"><br>
+                            Ngày nhận phòng: <input type="date" class="form-control" id="ngaynhanphong" name="ngaynhanphong"
+                           					<%
+			                        		if(getServletContext().getAttribute("ngaynhanphong") == null)
+			                        		{
+			                        			Date date = new Date();                        			  
+			                        			String strDateFormat = "yyyy-MM-dd";                        			  
+			                        			SimpleDateFormat simpleDateFormat = new SimpleDateFormat(strDateFormat);
+				                        	%>
+				                        		value= "<%=simpleDateFormat.format(date)%>"
+				                        	<%
+				                        		}
+				                        		else
+				                        		{
+				                        	%>	                        
+				                        		value= "<%=getServletContext().getAttribute("ngaynhanphong")%>"
+				                        	<%
+				                        		}
+				                        	%>  
+                            				 ><br>
                         </div>
                         <div class="col-sm-6" style="line-height: 35px">
-                            Ngày trả phòng: <input type="date" class="form-control" placeholder="Ngày trả phòng"><br>
+                            Ngày trả phòng: <input type="date" class="form-control" id="ngaytraphong" name="ngaytraphong" 
+                            				<%
+			                        		if(getServletContext().getAttribute("ngaytraphong") == null)
+			                        		{
+			                        			Date date = new Date(new Date().getTime() + 60*60*24*1000);                        			  
+			                        			String strDateFormat = "yyyy-MM-dd";                        			  
+			                        			SimpleDateFormat simpleDateFormat = new SimpleDateFormat(strDateFormat);
+				                        	%>
+				                        		value= "<%=simpleDateFormat.format(date)%>"
+				                        	<%
+				                        		}
+				                        		else
+				                        		{
+				                        	%>	                        
+				                        		value= "<%=getServletContext().getAttribute("ngaytraphong")%>"
+				                        	<%
+				                        		}
+				                        	%>  
+                            				><br>
                         </div>
                     </div>
                     <div class="col-sm-4" style="float:right">
-                        <button class="btn w3-button" id="btntimphong">Tìm phòng</button>
+                        <button class="btn w3-button" type="submit" id="btntimphong">Tìm phòng</button>
                     </div>
                 </form>
             </div>

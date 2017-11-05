@@ -42,15 +42,30 @@
 }
 
 .pdon1{
-    display:none;
+    padding: 5px 0;
+    position: relative
+}
+.pdon2{
+	padding: 5px 0;
+    position: relative
 }
 
 .pdoi1 {
-    display: none;
+    padding: 5px 0;
+    position: relative
+}
+.pdoi2{
+	padding: 5px 0;
+	position: relative
 }
 
+.ptt1{
+    padding: 5px 0;
+    position: relative
+}
 .ptt2{
-    display:none;
+	padding: 5px 0;
+    position: relative
 }
 
 #tablephong{

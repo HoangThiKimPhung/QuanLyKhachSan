@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Thêm đơn đặt phòng</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+    <!-- Boostrap-->
+    <link rel="stylesheet" href="./CSS/bootstrap.min.css">
+    <script src="./JS/jquery-3.2.1.min.js"></script>
+    <script src="./JS/bootstrap.min.js"></script>
+    <!-- Glyphicons -->
+    <link rel="stylesheet" href="./CSS/font-awesome.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="./CSS/w3.css">
+    <!-- MY CSS -->
+    <link rel="stylesheet" href="./CSS/header-menu-footer.css" />
+    <link rel="stylesheet" href="./CSS/them-don-dat-phong.css" />
+    <!-- MY JS -->
+    <script src="./JS/include-html.js"></script>
+    <script src="./JS/them-don-dat-phong.js"></script>
+</head>
+<body>
+    <!-- HEADER -->
+    <header id="header"></header>
+
+    <!-- MENU-LEFT -->
+    <section id="menu"> </section>
+
+    <!-- CONTENT -->
+    <section class="phan-noi-dung">
+        <h4>THÊM ĐƠN ĐẶT PHÒNG</h4>
+        <!-- Thông tin khách đặt -->
+        <fieldset>
+            <p style="font-weight: bold; text-decoration: underline">Thông tin khách đặt: </p>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-xs-12 col-sm-4 col-md-2">Mã KD:</label>
+                        <div class="col-xs-12 col-sm-8 col-md-4">
+                            <input type="text" class="form-control" size="20" placeholder="KD1" readonly>
+                        </div>
+                        <label class="control-label col-xs-12 col-sm-4 col-md-2">Họ tên:</label>
+                        <div class="col-xs-12 col-sm-8 col-md-4">
+                            <input type="text" class="form-control" size="30" placeholder="Nguyễn Văn A">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-12 col-sm-4 col-md-2">CMND:</label>
+                        <div class="col-xs-12 col-sm-8 col-md-4">
+                            <input type="text" class="form-control" size="30" placeholder="241386440">
+                        </div>
+                        <label class="control-label col-xs-12 col-sm-4 col-md-2">SĐT:</label>
+                        <div class="col-xs-12 col-sm-8 col-md-4">
+                            <input type="text" class="form-control" size="30" placeholder="0123456789">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-12 col-sm-4 col-md-2">Quốc tịch:</label>
+                        <div class="col-xs-12 col-sm-8 col-md-4">
+                            <input type="text" class="form-control" size="30" placeholder="Việt Nam">
+                        </div>
+                        <label class="control-label col-xs-12 col-sm-4 col-md-2">Địa chỉ:</label>
+                        <div class="col-xs-12 col-sm-8 col-md-4">
+                            <input type="text" class="form-control" size="30" placeholder="Đường, Khu phố, Phường, Quận, Tỉnh">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </fieldset>
+
+        <hr />
+        <!-- Thông tin đặt phòng -->
+        <fieldset>
+            <p style="font-weight: bold; text-decoration: underline">Thông tin đặt phòng: </p>
+            <div class="table-responsive">
+                <table class="table" id="table-thong-tin-dat-phong">
+                    <thead>
+                        <tr>
+                            <th>Loại phòng </th>
+                            <th>Mã phòng</th>
+                            <th>Ngày nhận phòng</th>
+                            <th>Ngày trả phòng</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div class="input-group-btn">
+                <button class="btn btn-default" id="btnxacnhan">
+                    Xác nhận đặt <i class="glyphicon glyphicon-ok"></i>
+                </button>
+            </div>
+        </fieldset>
+
+        <hr />
+        <!--Chọn phòng -->
+        <div>
+            <div class="w3-half">
+                <fieldset>
+                    <form class="form-horizontal">
+                        <label style="text-decoration:underline; color:#0d875c;">TÌM PHÒNG MỚI:</label> <br />
+                        <div class="form-group">
+                            <label class="control-label col-xs-12 col-sm-4 col-md-4">Ngày nhận phòng:</label>
+                            <div class="col-xs-12 col-sm-8 col-md-8">
+                                <input type="date" id="ngayNhanPhong" class="form-control" size="30" placeholder="Mã phòng cần tra cứu">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-xs-12 col-sm-4 col-md-4">Ngày trả phòng:</label>
+                            <div class="col-xs-12 col-sm-8 col-md-8">
+                                <input type="date" id="ngayTraPhong" class="form-control" size="30" placeholder="Mã phòng cần tra cứu">
+                            </div>
+                        </div>
+                    </form>
+                    <div class="input-group-btn">
+                        <button class="btn btn-default">
+                            Thay đổi ngày tìm <i class="glyphicon glyphicon-edit"></i>
+                        </button>
+                        <button class="btn btn-default">
+                            Tìm phòng <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="w3-half">
+                <fieldset>
+                    <form class="form-horizontal">
+                        <label style="text-decoration:underline; color:#0d875c;">CHỌN PHÒNG:</label> <br />
+                        <div class="form-group">
+                            <label class="control-label col-xs-12 col-sm-4 col-md-4">Loại phòng:</label>
+                            <div class="col-xs-12 col-sm-8 col-md-8">
+                                <select class="form-control" id="loaiPhong">
+                                    <option>Phòng đơn</option>
+                                    <option>Phòng đôi</option>
+                                    <option>Phòng tập thể</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-xs-12 col-sm-4 col-md-4">Mã phòng:</label>
+                            <div class="col-xs-12 col-sm-8 col-md-8">
+                                <select class="form-control" id="maPhong">
+                                    <option>A1</option>
+                                    <option>A2</option>
+                                    <option>A3</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="input-group-btn">
+                        <button id="btn-chon-phong" class="btn btn-default">
+                            Chọn <i class="glyphicon glyphicon-ok"></i>
+                        </button>
+                    </div>
+                </fieldset>
+            </div>
+
+        </div>
+    </section>
+</body>
+</html>
+<script>
+    function deleteRow(r) {
+        var i = r.parentNode.parentNode.rowIndex;
+        document.getElementById("table-thong-tin-dat-phong").deleteRow(i);
+        var rows = document.getElementById("table-thong-tin-dat-phong").getElementsByTagName("tbody")[0].getElementsByTagName("tr").length;
+        if (rows == 0) {
+            $("#btnxacnhan").prop('disabled', true); //Không có đặt phòng thì Disable button xác nhận
+        }
+    }
+</script>

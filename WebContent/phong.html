@@ -1,0 +1,484 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Phòng</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="/CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="/CSS/font-awesome.min.css">
+
+    <script src="/JS/jquery-3.2.1.min.js"></script>
+    <script src="/JS/bootstrap.min1.js"></script>
+
+    <!--My JS-->
+    <script src="/JS/phong.js"></script>
+    <!--My CSS-->
+    <link rel="stylesheet" href="/CSS/dangnhap.css">
+    <link rel="stylesheet" href="/CSS/trangchu.css">
+    <link rel="stylesheet" href="/CSS/datphong.css" />
+    
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-default" role="navigation" style="border-bottom:5px solid #dbdbdb;margin:0">
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <a><img class="logo" src="/Images/logoks.png" alt="Angel Hotel" style="position:inherit"></a>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <div class="navigation">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li><a href="#home" style="font-family:'avant_garde', sans-serif">TRANG CHỦ</a> </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right ">
+                        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                        <li><a data-toggle="modal" data-target="#modallogin">ĐĂNG NHẬP</a></li>
+                        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="image">
+            <img src="/Images/phong.jpg" alt="Phòng" style="width:100%;height:450px" />
+        </div>
+
+        <h2 style="text-align: center;color: #0d875c;margin-top:27px">P H Ò N G</h2>
+        <h4 style="text-align: center; font-size: 30px;color: #0d875c">__</h4><br>
+        <p style="line-height:26px;font-family:'Times New Roman';text-align:center;font-size:17px">Thưởng thức công việc và sự tĩnh lặng. Với trang trí hiện đại, các phòng của chúng tôi cung cấp tiện nghi tiện nghi và tiện nghi cao cấp bao gồm truyền hình LED, WIFI miễn phí, két an toàn, minibar, miễn phí sử dụng trung tâm thể dục, bể bơi, ... Tất cả các phòng đều rộng rãi và ấm cúng từ 28m2 đến 60m2, với tầm nhìn ra quang cảnh thành phố và nhiều ánh sáng ban ngày. Cơ sở vật chất và lợi ích là tốt nhất.</p>
+        <br />
+
+        <!--Đặt phòng-->
+        <div class="row" style="margin:0">
+            <div ng-view="" class="view-frame ng-scope">
+                <div class="navbar-inverse skinned-bar affix-top ng-scope" role="banner" id="top-banner" style="margin-bottom:10px; z-index: 90; min-height: 50px; border:1px solid transparent; border-radius:5px; background:#0d875c">
+                    <div class="hidden-xs">
+                        <form class="hidden-xs form-horizontal ng-pristine ng-valid" role="search" style="padding:0 5px 10px 5px; margin-top:8px;">
+                            <div class="col-lg-12 col-md-12 col-sm-12" id="checkin-form">
+                                <label class="nav-label control-label pull-left">Ngày nhận phòng:</label>
+                                <span id="checkin" class="pull-left ng-hide input-group date" data-provide="datepicker">
+                                    <input type="text" id="inputcheckin" class="pull-left" name="date" placeholder="24 thg 10 17">
+                                    <span class="input-group-addon glyphicon glyphicon-calendar pull-left" id="iconcheckin"></span>
+                                </span>
+                                <label class="nav-label control-label pull-left" style="margin-left:25px">Ngày trả phòng:</label>
+                                <span id="checkin" class="pull-left ng-hide input-group date" data-provide="datepicker">
+                                    <input type="text" id="inputcheckin" class="pull-left" name="date" placeholder="25 thg 10 17">
+                                    <span class="input-group-addon glyphicon glyphicon-calendar pull-left" id="iconcheckin"></span>
+                                </span>
+                                <span class="pull-left" style="width: 10px;">&nbsp;</span>
+                                <button class="pull-left btn btn-main" id="findroom">Tìm phòng trống</button>
+                                <!--<div class="pull-right hidden-xs hidden-sm" style="margin-right: 3px; position: relative">
+                                <a class="btn btn-lg btn-success btn-cart" href="#" style="padding:6px 13px; margin-top:-4px;">
+                                    <span class="pull-left" style="text-transform: uppercase;margin-right:3px;">Giỏ hàng</span>
+                                    <span class="pull-left ng-binding ng-hide" style="text-transform: uppercase;margin-right:3px;"></span>
+                                    <span class="pull-right" style="padding-left: 2px;">
+                                        <img src="Images/img_cart.png" height="25">
+                                    </span>
+                                    <span class="badge pull-right ng-binding" style="color:white;background:red">0</span>
+                                </a>
+                            </div>-->
+                            </div>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Phòng đơn-->
+        <div class="panel-group" id="accordion">
+            <!--Thông tin phòng chi tiết-->
+            <div class="collapse" id="collapse1" style="padding-bottom:10px">
+                <div class="panel-body">
+                    <div class="col-sm-6" style="padding-top:8px;">
+                        <div id="myCarousel1" class="carousel slide" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators">
+                                <li data-target="#myCarousel1" data-slide-to="0" class="active"></li>
+                                <li data-target="#myCarousel1" data-slide-to="1"></li>
+                            </ol>
+
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <img src="Images/roomdonzoom.jpg" alt="Phòng đơn" style="width:100%;">
+                                </div>
+
+                                <div class="item">
+                                    <img src="Images/roomdon2zoom.jpg" alt="Phòng đơn1" style="width:100%;">
+                                </div>
+                            </div>
+
+                            <!-- Left and right controls -->
+                            <a class="left carousel-control" href="#myCarousel1" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#myCarousel1" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="hidden-xs">
+                            <div class="pull-right glyphicon glyphicon-remove x-icon"></div>
+                            <div style="padding: 0 5px 0 5px;">
+                                <strong>Phòng đơn</strong>
+                                <span>giá chỉ từ<strong style="color: #0283df">&nbsp;500&nbsp;USD</strong></span>
+                            </div>
+                        </div>
+                        <div class="x-content hidden-xs x-detail">
+                            <div style="padding: 10px 5px;">Kích thước phòng 28 m2, thiết kế thanh lịch, phong cách với nội thất bằng gỗ tối màu. Tất cả các phòng đều có cửa sổ giúp khách hàng thư giãn với một bầu không khí trong lành.</div>
+                            <div style="padding: 0 5px 10px 5px; " class="hidden-xs  clearfix">
+                                <div>
+                                    <b>Tiện nghi phòng</b>
+                                </div>
+                                <ul>
+                                    <li class="col-md-6 ng-scope ng-binding">Máy điều hòa</li>
+                                    <li class="col-md-6 ng-scope ng-binding">Bồn tắm</li>
+                                    <li class="col-md-6 ng-scope ng-binding">Tivi truyền hình cáp</li>
+                                    <li class="col-md-6 ng-scope ng-binding">Bộ bàn ghế</li>
+                                    <li class="col-md-6 ng-scope ng-binding">Thẻ chìa khóa điện tử</li>
+                                    <li class="col-md-6 ng-scope ng-binding">Điện thoại bàn</li>
+                                    <li class="col-md-6 ng-scope ng-binding">Tủ lạnh</li>
+                                    <li class="col-md-6 ng-scope ng-binding">Wifi</li>
+                                    <li class="col-md-6 ng-scope ng-binding">Phòng không hút thuốc</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Thông tin phòng còn trống-->
+            <div class="row pdon1" style="padding: 5px 0; position: relative">
+                <div class="col-md-3 col-sm-3 hidden-xs hidden-sm" id="infodon1">
+                    <img src="Images/roomdon.jpg" style="width:100%" alt="Phong don" data-toggle="collapse" data-target="#collapse1" />
+                    <div class="bottom-right">
+                        <img src="Images/img_zoom.png" />
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="panel panel-default hidden-xs">
+                        <div class="panel-heading">
+                            <i class="fa fa-times-circle pull-left" id="btnhide1" style="font-size:39px;color:red"></i>
+                            <strong class="pull-left">Phòng đơn</strong><br />
+                            <strong style="color:red">Hết phòng</strong>
+                        </div>
+                        <div style="padding:0 17px">
+                            <button class="pull-right btn btn-default btn-lg btn-cart" style="margin:10px" disabled>Hết phòng</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Thông tin phòng còn trống-->
+            <div class="row pdon2" style="padding: 5px 0; position: relative">
+                <div class="col-md-3 col-sm-3 hidden-xs hidden-sm" id="infodon2">
+                    <img src="Images/roomdon.jpg" style="width:100%" alt="Phong don" data-toggle="collapse" data-target="#collapse1" />
+                    <div class="bottom-right">
+                        <img src="Images/img_zoom.png" />
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="panel panel-default hidden-xs">
+                        <div class="panel-heading pnl1">
+                            <i class="fa fa-check-circle pull-left" id="btnhide1" style="font-size:39px;color:green"></i>
+                            <strong class="pull-left">Phòng đơn</strong><br />
+                            Giá chỉ từ <strong style="color:#0283df">500 USD</strong>
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12" style="padding:0 17px">
+                            <div style="margin:10px">
+                                <p>Phòng sang trọng, thanh lịch, tầm nhìn ra bên ngoài đẹp lỗng lẫy</p>
+                                <ul>
+                                    <li>Kích thước: 28 m2</li>
+                                    <li>Giường: 1 giường đôi</li>
+                                </ul>
+                                <hr style="margin-bottom:0" />
+                                <div style="font-size:20px">
+                                    <span class="fa fa-wifi"></span><span>&nbsp;</span><span>&nbsp;</span>
+                                    <span class="fa fa-tv"></span><span>&nbsp;</span><span>&nbsp;</span>
+                                    <span class="fa fa-bath"></span><span>&nbsp;</span><span>&nbsp;</span>
+                                    <span class="fa fa-cutlery"></span><span>&nbsp;</span><span>&nbsp;</span>
+                                    <span class="fa fa-coffee"></span><span>&nbsp;</span><span>&nbsp;</span>
+                                    <span class="fa fa-phone"></span><span>&nbsp;</span><span>&nbsp;</span>
+                                    <span class="fa fa-snowflake-o"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12" style="padding:0 17px">
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="padding:0 17px;text-align:center">
+                            <h2 style="border:1px solid #c4e1f6;padding:10px;background:#c4e1f6;border-radius:5px;line-height:45px;font-weight:bold">Chỉ từ $500</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Phòng đôi-->
+        <div class="panel-group" id="accordion">
+            <!--Thông tin phòng chi tiết-->
+            <div class="collapse" id="collapse2" style="padding-bottom:10px">
+                <div class="panel-body">
+                    <div class="col-sm-6" style="padding-top:8px;">
+                        <div id="myCarousel2" class="carousel slide" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators">
+                                <li data-target="#myCarousel2" data-slide-to="0" class="active"></li>
+                                <li data-target="#myCarousel2" data-slide-to="1"></li>
+                            </ol>
+
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <img src="Images/roomdonzoom.jpg" alt="Phòng đôi" style="width:100%;">
+                                </div>
+
+                                <div class="item">
+                                    <img src="Images/roomdon2zoom.jpg" alt="Phòng đôi1" style="width:100%;">
+                                </div>
+                            </div>
+
+                            <!-- Left and right controls -->
+                            <a class="left carousel-control" href="#myCarousel2" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#myCarousel2" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="hidden-xs">
+                            <div class="pull-right glyphicon glyphicon-remove x-icon"></div>
+                            <div style="padding: 0 5px 0 5px;">
+                                <strong>Phòng đôi</strong>
+                                <span>giá chỉ từ<strong style="color: #0283df">&nbsp;750&nbsp;USD</strong></span>
+                            </div>
+                        </div>
+                        <div class="x-content hidden-xs x-detail">
+                            <div style="padding: 10px 5px;">Kích thước phòng 36 m2, thiết kế thanh lịch, phong cách với nội thất bằng gỗ tối màu. Tất cả các phòng đều có cửa sổ giúp khách hàng thư giãn với một bầu không khí trong lành.</div>
+                            <div style="padding: 0 5px 10px 5px; " class="hidden-xs  clearfix">
+                                <div>
+                                    <b>Tiện nghi phòng</b>
+                                </div>
+                                <ul>
+                                    <li class="col-md-6 ng-scope ng-binding">Máy điều hòa</li>
+                                    <li class="col-md-6 ng-scope ng-binding">Bồn tắm</li>
+                                    <li class="col-md-6 ng-scope ng-binding">Tivi truyền hình cáp</li>
+                                    <li class="col-md-6 ng-scope ng-binding">Bộ bàn ghế</li>
+                                    <li class="col-md-6 ng-scope ng-binding">Thẻ chìa khóa điện tử</li>
+                                    <li class="col-md-6 ng-scope ng-binding">Điện thoại bàn</li>
+                                    <li class="col-md-6 ng-scope ng-binding">Tủ lạnh</li>
+                                    <li class="col-md-6 ng-scope ng-binding">Wifi</li>
+                                    <li class="col-md-6 ng-scope ng-binding">Phòng không hút thuốc</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Thông tin phòng còn trống-->
+            <div class="row pdoi1" style="padding: 5px 0; position: relative">
+                <div class="col-md-3 col-sm-3 hidden-xs hidden-sm" id="infodoi1">
+                    <img src="Images/roomdon.jpg" style="width:100%" alt="Phong doi" data-toggle="collapse" data-target="#collapse2" />
+                    <div class="bottom-right">
+                        <img src="Images/img_zoom.png" />
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="panel panel-default hidden-xs">
+                        <div class="panel-heading">
+                            <i class="fa fa-times-circle pull-left" id="btnhide2" style="font-size:39px;color:red"></i>
+                            <strong class="pull-left">Phòng đôi</strong><br />
+                            <strong style="color:red">Hết phòng</strong>
+                        </div>
+                        <div style="padding:0 17px">
+                            <button class="pull-right btn btn-default btn-lg btn-cart" style="margin:10px" disabled>Hết phòng</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Thông tin phòng còn trống-->
+            <div class="row pdoi2" style="padding: 5px 0; position: relative">
+                <div class="col-md-3 col-sm-3 hidden-xs hidden-sm" id="infodoi2">
+                    <img src="Images/roomdon.jpg" style="width:100%" alt="Phong doi" data-toggle="collapse" data-target="#collapse2" />
+                    <div class="bottom-right">
+                        <img src="Images/img_zoom.png" />
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="panel panel-default hidden-xs">
+                        <div class="panel-heading pnl1">
+                            <i class="fa fa-check-circle pull-left" id="btnhide2" style="font-size:39px;color:green"></i>
+                            <strong class="pull-left">Phòng đôi</strong><br />
+                            Giá chỉ từ <strong style="color:#0283df">750 USD</strong>
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12" style="padding:0 17px">
+                            <div style="margin:10px">
+                                <p>Phòng sang trọng, thanh lịch, tầm nhìn ra bên ngoài đẹp lỗng lẫy</p>
+                                <ul>
+                                    <li>Kích thước: 36 m2</li>
+                                    <li>Giường: 2 giường đôi</li>
+                                </ul>
+                                <hr style="margin-bottom:0" />
+                                <div style="font-size:20px">
+                                    <span class="fa fa-wifi"></span><span>&nbsp;</span><span>&nbsp;</span>
+                                    <span class="fa fa-tv"></span><span>&nbsp;</span><span>&nbsp;</span>
+                                    <span class="fa fa-bath"></span><span>&nbsp;</span><span>&nbsp;</span>
+                                    <span class="fa fa-cutlery"></span><span>&nbsp;</span><span>&nbsp;</span>
+                                    <span class="fa fa-coffee"></span><span>&nbsp;</span><span>&nbsp;</span>
+                                    <span class="fa fa-phone"></span><span>&nbsp;</span><span>&nbsp;</span>
+                                    <span class="fa fa-snowflake-o"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12" style="padding:0 17px">
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="padding:0 17px;text-align:center">
+                            <h2 style="border:1px solid #c4e1f6;padding:10px;background:#c4e1f6;border-radius:5px;line-height:45px;font-weight:bold">Chỉ từ $750</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Phòng tập thể-->
+        <div class="panel-group" id="accordion">
+            <!--Thông tin phòng chi tiết-->
+            <div class="collapse" id="collapse3" style="padding-bottom:10px">
+                <div class="panel-body">
+                    <div class="col-sm-6" style="padding-top:8px;">
+                        <div id="myCarousel3" class="carousel slide" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators">
+                                <li data-target="#myCarousel3" data-slide-to="0" class="active"></li>
+                                <li data-target="#myCarousel3" data-slide-to="1"></li>
+                            </ol>
+
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <img src="Images/roomttzoom.jpg" alt="Phòng tt" style="width:100%;">
+                                </div>
+
+                                <div class="item">
+                                    <img src="Images/roomttzoom.jpg" alt="Phòng tt" style="width:100%;">
+                                </div>
+                            </div>
+
+                            <!-- Left and right controls -->
+                            <a class="left carousel-control" href="#myCarousel3" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#myCarousel3" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="hidden-xs">
+                            <div class="pull-right glyphicon glyphicon-remove x-icon"></div>
+                            <div style="padding: 0 5px 0 5px;">
+                                <strong>Phòng tập thể</strong>
+                                <span>giá chỉ từ<strong style="color: #0283df">&nbsp;1000&nbsp;USD</strong></span>
+                            </div>
+                        </div>
+                        <div class="x-content hidden-xs x-detail">
+                            <div style="padding: 10px 5px;">Kích thước phòng 48 m2, thiết kế thanh lịch, phong cách với nội thất bằng gỗ tối màu. Tất cả các phòng đều có cửa sổ giúp khách hàng thư giãn với một bầu không khí trong lành.</div>
+                            <div style="padding: 0 5px 10px 5px; " class="hidden-xs  clearfix">
+                                <div>
+                                    <b>Tiện nghi phòng</b>
+                                </div>
+                                <ul>
+                                    <li class="col-md-6 ng-scope ng-binding">Máy điều hòa</li>
+                                    <li class="col-md-6 ng-scope ng-binding">Bồn tắm</li>
+                                    <li class="col-md-6 ng-scope ng-binding">Tivi truyền hình cáp</li>
+                                    <li class="col-md-6 ng-scope ng-binding">Bộ bàn ghế</li>
+                                    <li class="col-md-6 ng-scope ng-binding">Thẻ chìa khóa điện tử</li>
+                                    <li class="col-md-6 ng-scope ng-binding">Điện thoại bàn</li>
+                                    <li class="col-md-6 ng-scope ng-binding">Tủ lạnh</li>
+                                    <li class="col-md-6 ng-scope ng-binding">Wifi</li>
+                                    <li class="col-md-6 ng-scope ng-binding">Phòng không hút thuốc</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Thông tin phòng còn trống-->
+            <div class="row ptt1" style="padding: 5px 0; position: relative;display:none">
+                <div class="col-md-3 col-sm-3 hidden-xs hidden-sm" id="infott1">
+                    <img src="Images/roomtt.jpg" style="width:100%" alt="Phong tt" data-toggle="collapse" data-target="#collapse3" />
+                    <div class="bottom-right">
+                        <img src="Images/img_zoom.png" />
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="panel panel-default hidden-xs">
+                        <div class="panel-heading">
+                            <i class="fa fa-times-circle pull-left" id="btnhide3" style="font-size:39px;color:red"></i>
+                            <strong class="pull-left">Phòng tập thể</strong><br />
+                            <strong style="color:red">Hết phòng</strong>
+                        </div>
+                        <div style="padding:0 17px">
+                            <button class="pull-right btn btn-default btn-lg btn-cart" style="margin:10px" disabled>Hết phòng</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Thông tin phòng còn trống-->
+            <div class="row ptt2" style="padding: 5px 0; position: relative;display:block">
+                <div class="col-md-3 col-sm-3 hidden-xs hidden-sm" id="infott2">
+                    <img src="Images/roomtt.jpg" style="width:100%" alt="Phong tt" data-toggle="collapse" data-target="#collapse3" />
+                    <div class="bottom-right">
+                        <img src="Images/img_zoom.png" />
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="panel panel-default hidden-xs">
+                        <div class="panel-heading">
+                            <i class="fa fa-check-circle pull-left" id="btnhide3" style="font-size:39px;color:green"></i>
+                            <strong class="pull-left">Phòng tập thể</strong><br />
+                            Giá chỉ từ <strong style="color:#0283df">1000 USD</strong>
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12" style="padding:0 17px">
+                            <div style="margin:10px">
+                                <p>Phòng sang trọng, thanh lịch, tầm nhìn ra bên ngoài đẹp lỗng lẫy</p>
+                                <ul>
+                                    <li>Kích thước: 48 m2</li>
+                                    <li>Giường: 3 giường đôi</li>
+                                </ul>
+                                <hr style="margin-bottom:0" />
+                                <div style="font-size:20px">
+                                    <span class="fa fa-wifi"></span><span>&nbsp;</span><span>&nbsp;</span>
+                                    <span class="fa fa-tv"></span><span>&nbsp;</span><span>&nbsp;</span>
+                                    <span class="fa fa-bath"></span><span>&nbsp;</span><span>&nbsp;</span>
+                                    <span class="fa fa-cutlery"></span><span>&nbsp;</span><span>&nbsp;</span>
+                                    <span class="fa fa-coffee"></span><span>&nbsp;</span><span>&nbsp;</span>
+                                    <span class="fa fa-phone"></span><span>&nbsp;</span><span>&nbsp;</span>
+                                    <span class="fa fa-snowflake-o"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12" style="padding:0 17px">
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="padding:0 17px;text-align:center">
+                            <h2 style="border:1px solid #c4e1f6;padding:10px;background:#c4e1f6;border-radius:5px;line-height:45px;font-weight:bold">Chỉ từ $1000</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
