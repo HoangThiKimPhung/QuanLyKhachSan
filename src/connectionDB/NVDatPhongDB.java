@@ -265,7 +265,7 @@ public class NVDatPhongDB {
 				System.out.println("connect null");
 				return 0;
 			}
-			String sql = "{call spHuyGiaoDichDatPhong(?)}";
+			String sql = "{call spXoaKhachDat(?)}";
 			cstmt = conn.prepareCall(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 
 			cstmt.setString(1, maKD);
@@ -355,6 +355,50 @@ public class NVDatPhongDB {
 				return 1;
 			else
 				return 0;
+
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		} finally {
+			try {
+				if (conn != null) {
+					conn.close();
+				}
+				if (cstmt != null) {
+					cstmt.close();
+				}
+			} catch (SQLException ex) {
+				ex.printStackTrace();
+			}
+		}
+		return 0;
+	}
+
+	public static int XacNhanNhanPhong(String maKD, String maKH, String maPhong, String ngayNhanPhong, String ngayTraPhong, String user, String pass) {
+		Connection conn = null;
+		CallableStatement cstmt = null;
+
+		try {
+			conn = ConnectDB.ConnectDB_Role(user, pass);
+			if (conn == null) {
+				return 0;
+			}
+			String sql = "{call spXacNhanNhanPhong(?,?,?,?,?,?)}";
+			cstmt = conn.prepareCall(sql, ResultSet.TYPE_SCROLL_INSENSITIVE,
+					ResultSet.CONCUR_READ_ONLY);
+
+			cstmt.setString(1, maKD);
+			cstmt.setString(2, maKH);
+			cstmt.setString(3, maPhong);
+			cstmt.setString(4, ngayNhanPhong);
+			cstmt.setString(5, ngayTraPhong);
+			cstmt.registerOutParameter(6, java.sql.Types.INTEGER);
+
+			cstmt.executeUpdate();
+			if (cstmt.getInt(6) == 1) {
+				return 1;
+			}
+				
+			return 0;
 
 		} catch (SQLException ex) {
 			ex.printStackTrace();
